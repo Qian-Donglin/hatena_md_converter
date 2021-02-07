@@ -6,7 +6,7 @@ using namespace std;
 
 /*
 Katexを使うことを前提とする。
-_, *, [, ], (, ) の6種類の文字に戦闘に\とつけてエスケープする。
+_, *, [, ], (, ) の6種類の文字に先頭に\とつけてエスケープする。
 */
 
 //$$であるかを識別する
@@ -47,7 +47,7 @@ bool is_in_the_text_delimiter(string &s, int idx)
 
 int main()
 {
-	ofstream ofs("result.txt");
+	ofstream ofs("result.md");
 
 	string buf;
 	bool in_one_line = false; //一行モードの数式に入っているか
@@ -99,6 +99,8 @@ int main()
 			}
 			ofs << buf[i];
 		}
+		//改行
+		ofs << endl;
 	}
 	ofs.close();
 	return 0;
